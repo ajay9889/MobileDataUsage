@@ -11,7 +11,7 @@ import android.support.annotation.NonNull;
  * Created by Ajay on 08/09/18.
  */
 public abstract class Databasehelper extends RoomDatabase {
-    public abstract DaoInterface userDao();
+    public abstract DaoInterface mobileDataDao();
     private static Databasehelper INSTANCE;
     @NonNull
     @Override
