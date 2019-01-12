@@ -24,6 +24,7 @@
         <activity android:name="com.mobiledata.sg.network.MainActivity"
             android:screenOrientation="portrait"
             android:label="@string/app_name"
+            android:theme="@style/AppTheme"
            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

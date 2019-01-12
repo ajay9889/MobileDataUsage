@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MobileDataUsage</string>
+    <string name="app_name">Mobile Network Data</string>
+    <string name="net_connection">"Check your network connection and try again.</string>
 </resources>

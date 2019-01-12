@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 import java.io.Serializable;
 
 @Entity(indices = {@Index(value = "_id", unique = true)})
-public class MobileDataArtifact implements Serializable {
+public class MobileData implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;
 //    {
@@ -16,14 +16,22 @@ public class MobileDataArtifact implements Serializable {
 //            "quarter": "2004-Q3",
 //            "_id": 1
 //    }
-
     @ColumnInfo(name = "_id")
     private String _id;
     @ColumnInfo(name = "quarter")
     private String quarter;
     @ColumnInfo(name = "volume_of_mobile_data")
-    private String volume_of_mobile_data;
+    private float volume_of_mobile_data;
+    @ColumnInfo(name = "year")
+    private int year;
 
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
 
     /**
      * Setter and getter function
@@ -52,11 +60,11 @@ public class MobileDataArtifact implements Serializable {
         this.quarter = quarter;
     }
 
-    public String getVolume_of_mobile_data() {
+    public float getVolume_of_mobile_data() {
         return volume_of_mobile_data;
     }
 
-    public void setVolume_of_mobile_data(String volume_of_mobile_data) {
+    public void setVolume_of_mobile_data(float volume_of_mobile_data) {
         this.volume_of_mobile_data = volume_of_mobile_data;
     }
 }
