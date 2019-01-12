@@ -6,13 +6,13 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 
 public class Utility {
-    public static final String DATABSE_NAME ="MobileData";
+    public static final String TABLEDATABSE_NAME ="MobileData";
     public static final int REQUEST_CODE =1232;
     /***
      * Check the internet connection
      */
     public static boolean isNetworkAvailable(Context ctx) {
-        WifiManager wifi = (WifiManager) ctx.getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifi = (WifiManager) ctx.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         ConnectivityManager connectivityManager = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (wifi.isWifiEnabled() && (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null && connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED)) {
             return true;

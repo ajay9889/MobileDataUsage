@@ -1,13 +1,11 @@
 package com.mobiledata.sg.network;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.TextView;
-
-
 import com.mobiledata.sg.network.CommonUtils.GraphView;
 import com.mobiledata.sg.network.CommonUtils.Utility;
 import com.mobiledata.sg.network.ModelClass.MobileDataArtifact;
@@ -16,18 +14,15 @@ import com.mobiledata.sg.network.NetworkAPICalls.NetworkHandler;
 import com.mobiledata.sg.network.NetworkAPICalls.ResponseInterface;
 import com.mobiledata.sg.network.RoomPersistDatabase.DaoInterface;
 import com.mobiledata.sg.network.RoomPersistDatabase.Databasehelper;
-
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+//import butterknife.BindView;
+//import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements ResponseInterface {
+public class MainActivity extends Activity implements ResponseInterface {
 //    @BindView(R.id.graph)
 //    GraphView graph;
     private static Databasehelper INSTANCE;
@@ -37,10 +32,10 @@ public class MainActivity extends AppCompatActivity implements ResponseInterface
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
         // Example of a call to a native method
 //        Create Database
-        INSTANCE=  Databasehelper.getDatabase(MainActivity.this, Utility.DATABSE_NAME);
+        INSTANCE=  Databasehelper.getDatabase(MainActivity.this, Utility.TABLEDATABSE_NAME);
         // RequestData
         if(Utility.isNetworkAvailable(MainActivity.this)){
             new NetworkHandler().onRequest(this, Utility.REQUEST_CODE , EndpointUrls.FetchNetworkMobileData);

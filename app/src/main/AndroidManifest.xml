@@ -20,9 +20,7 @@
         android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/security_config"
         >
-
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
-
         <activity android:name="com.mobiledata.sg.network.MainActivity"
             android:screenOrientation="portrait"
             android:label="@string/app_name"
