@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements ResponseInterface
         INSTANCE=  Databasehelper.getDatabase(MainActivity.this, Utility.TABLEDATABSE_NAME);
         recycletView   = (RecyclerView)findViewById(R.id.recycletView);
         lineChartView = (LineChartView)findViewById(R.id.chart);
-
         // RequestData
       requestToNetwork();
     }
@@ -106,7 +105,6 @@ public class MainActivity extends AppCompatActivity implements ResponseInterface
                         JSONObject mMobileData=new JSONObject(serverResponse);
                         JSONArray mArray =mMobileData.getJSONObject("result").getJSONArray("records");
                         lMobileData =new MobileData[mArray.length()];
-//                        yAxisData= new float[mArray.length()];
                         for(int i =0 ; i <mArray.length() ; i++){
                             JSONObject singData=mArray.getJSONObject(i);
                             String year =singData.getString("quarter").split("-")[0].trim();
@@ -117,7 +115,6 @@ public class MainActivity extends AppCompatActivity implements ResponseInterface
                                 mMarkToDownload.setVolume_of_mobile_data(Float.valueOf(singData.getString("volume_of_mobile_data")));
                                 mMarkToDownload.setYear(year_int);
                                 lMobileData[i] = mMarkToDownload;
-//                            yAxisData[i] = Float.valueOf(singData.getString("volume_of_mobile_data"));
 
                         }
 
@@ -192,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements ResponseInterface
             data.setAxisXBottom(axis);
             axis.setTextSize(15);
             axis.setTextColor(Color.parseColor("#03A9F4"));
-            axis.setName("QUARTER");
+            axis.setName("YEAR");
 
             Axis yAxis = new Axis();
             yAxis.setLineColor(Color.parseColor("#9C27B0"));
