@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements ResponseInterface
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Example of a call to a native method
+
 //        Create Database
         INSTANCE=  Databasehelper.getDatabase(MainActivity.this, Utility.TABLEDATABSE_NAME);
         recycletView   = (RecyclerView)findViewById(R.id.recycletView);
