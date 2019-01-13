@@ -1,7 +1,10 @@
 package com.mobiledata.sg.network.AdapterClass;
+
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Build;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +13,6 @@ import com.mobiledata.sg.network.CommonUtils.Utility;
 import com.mobiledata.sg.network.R;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class CardListAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     private JSONArray lMobileData;
@@ -34,7 +35,7 @@ public class CardListAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
             final RecyclerViewHolder mainHolder = (RecyclerViewHolder) holder;// holder
             mainHolder.textView.setText(singleMobileData.getString(Utility.NETWORKDATA));
             mainHolder.year.setText(singleMobileData.getString(Utility.YEAR));
-            mainHolder.imageView.setOnClickListener(new View.OnClickListener() {
+            mainHolder.image_item_clicks.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     try {
@@ -73,7 +74,7 @@ public class CardListAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
                         dialogue=null;
                     }
                 })
-                .setIcon(android.R.drawable.ic_dialog_alert);
+                .setIcon(R.mipmap.decreases_image);
 
         dialogue = builder.create();
         dialogue.show();

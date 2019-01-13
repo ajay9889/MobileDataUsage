@@ -1,12 +1,9 @@
 package com.mobiledata.sg.network.NetworkAPICalls;
+
+import okhttp3.*;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class NetworkHandler {
     public void onRequest(final ResponseInterface mResponseInterface, final int requestCode, String url){

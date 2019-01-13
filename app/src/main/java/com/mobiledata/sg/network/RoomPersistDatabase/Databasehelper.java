@@ -1,16 +1,12 @@
 package com.mobiledata.sg.network.RoomPersistDatabase;
 
-import androidx.room.Database;
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
-import androidx.room.DatabaseConfiguration;
-import androidx.room.InvalidationTracker;
-import androidx.room.Room;
-import androidx.room.RoomDatabase;
+import android.arch.persistence.db.SupportSQLiteOpenHelper;
+import android.arch.persistence.room.*;
 import android.content.Context;
 
 import com.mobiledata.sg.network.ModelClass.MobileData;
+import io.reactivex.annotations.NonNull;
 
-import androidx.annotation.NonNull;
 /**
  * Created by Ajay on 08/09/18.
  */

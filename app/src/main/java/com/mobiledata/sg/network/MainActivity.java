@@ -5,6 +5,9 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -12,7 +15,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.mobiledata.sg.network.AdapterClass.CardListAdapter;
 import com.mobiledata.sg.network.CommonUtils.GridSpacingItemDecoration;
 import com.mobiledata.sg.network.CommonUtils.Utility;
@@ -22,24 +24,16 @@ import com.mobiledata.sg.network.NetworkAPICalls.NetworkHandler;
 import com.mobiledata.sg.network.NetworkAPICalls.ResponseInterface;
 import com.mobiledata.sg.network.RoomPersistDatabase.DaoInterface;
 import com.mobiledata.sg.network.RoomPersistDatabase.Databasehelper;
+import lecho.lib.hellocharts.model.*;
+import lecho.lib.hellocharts.view.LineChartView;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import lecho.lib.hellocharts.model.Axis;
-import lecho.lib.hellocharts.model.AxisValue;
-import lecho.lib.hellocharts.model.Line;
-import lecho.lib.hellocharts.model.LineChartData;
-import lecho.lib.hellocharts.model.PointValue;
-import lecho.lib.hellocharts.model.Viewport;
-import lecho.lib.hellocharts.view.LineChartView;
-
 import static com.mobiledata.sg.network.MyMainApplication.INSTANCE;
+
 public class MainActivity extends AppCompatActivity implements ResponseInterface {
     MobileData[] lMobileData =null;
     LineChartView lineChartView;
@@ -57,12 +51,17 @@ public class MainActivity extends AppCompatActivity implements ResponseInterface
         lineChartView = (LineChartView)findViewById(R.id.chart);
 
         // RequestData
+      requestToNetwork();
+    }
+
+    public void requestToNetwork(){
         if(Utility.isNetworkAvailable(MainActivity.this)){
             new NetworkHandler().onRequest(this, Utility.REQUEST_CODE , EndpointUrls.FetchNetworkMobileData);
         }else{
             fetchAllLocalCachedData(MainActivity.this);
         }
     }
+
     MenuItem graph_togle;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -135,8 +134,8 @@ public class MainActivity extends AppCompatActivity implements ResponseInterface
     }
 
     public void showAlert(){
-        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), R.string.net_connection, Snackbar.LENGTH_LONG);
-        snackbar.show();
+//        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), R.string.net_connection, Snackbar.LENGTH_LONG);
+//        snackbar.show();
     }
     public   void insertAll(Context ctx, MobileData[] lMobileData)  {
         new insertAsync(INSTANCE.mobileDataDao() , lMobileData).execute();

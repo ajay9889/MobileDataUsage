@@ -1,9 +1,8 @@
 package com.mobiledata.sg.network.CommonUtils;
 
 import android.graphics.Rect;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
-import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by Ajay on 16/11/2016.
