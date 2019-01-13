@@ -1,17 +1,18 @@
 package com.mobiledata.sg.network.RoomPersistDatabase;
 
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
-import androidx.room.DatabaseConfiguration;
-import androidx.room.InvalidationTracker;
-import androidx.room.Room;
-import androidx.room.RoomDatabase;
+import android.arch.persistence.db.SupportSQLiteOpenHelper;
+import android.arch.persistence.room.*;
 import android.content.Context;
-import androidx.annotation.NonNull;
+
+import com.mobiledata.sg.network.ModelClass.MobileData;
+import io.reactivex.annotations.NonNull;
+
 /**
  * Created by Ajay on 08/09/18.
  */
+@Database(entities = { MobileData.class }, version = 1, exportSchema = false)
 public abstract class Databasehelper extends RoomDatabase {
-    public abstract DaoInterface userDao();
+    public abstract DaoInterface mobileDataDao();
     private static Databasehelper INSTANCE;
     @NonNull
     @Override
@@ -35,13 +36,10 @@ public abstract class Databasehelper extends RoomDatabase {
     public static Databasehelper getDatabase(final Context context , String DataBaseName) {
         if (INSTANCE == null) {
             synchronized (Databasehelper.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            Databasehelper.class, DataBaseName)
-                            .fallbackToDestructiveMigration()
-                            .build();
-
-                }
+                INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                        Databasehelper.class, DataBaseName)
+                        .fallbackToDestructiveMigration().allowMainThreadQueries()
+                        .build();
             }
         }
         return INSTANCE;

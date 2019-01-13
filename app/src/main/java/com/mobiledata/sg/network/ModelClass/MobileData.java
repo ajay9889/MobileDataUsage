@@ -1,18 +1,11 @@
 package com.mobiledata.sg.network.ModelClass;
 
-<<<<<<< HEAD:app/src/main/java/com/mobiledata/sg/network/ModelClass/MobileDataArtifact.java
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.Index;
-import androidx.room.PrimaryKey;
-=======
 
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
->>>>>>> 214b0908c225728dd15911cc57144142efe2da29:app/src/main/java/com/mobiledata/sg/network/ModelClass/MobileData.java
 
 import java.io.Serializable;
 
