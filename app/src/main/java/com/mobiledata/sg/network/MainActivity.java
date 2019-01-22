@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements ResponseInterface
         inflater.inflate(R.menu.graphmenu, menu);
         graph_togle = menu.findItem(R.id.graph_menu);
         return super.onCreateOptionsMenu(menu);
-
     }
 
     @Override
@@ -115,9 +114,7 @@ public class MainActivity extends AppCompatActivity implements ResponseInterface
                                 mMarkToDownload.setVolume_of_mobile_data(Float.valueOf(singData.getString("volume_of_mobile_data")));
                                 mMarkToDownload.setYear(year_int);
                                 lMobileData[i] = mMarkToDownload;
-
                         }
-
                     insertAll(MainActivity.this, lMobileData);
                     }else{
                         showAlert();
